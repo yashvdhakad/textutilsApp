@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const [emoji, setEmoji] = useState("🌙");
+
+    const darkModeHandler =()=>{
+        setEmoji("☀️")
+    }
+
     return (
         <nav className='h-16 px-20 bg-blue-100 text-blue-900 font-bold flex flex-row justify-between items-center rounded-lg'>
-            <h1>📋 TextUtilsApp</h1>
+            <h1>{props.title}</h1>
+            <button className="" onClick={darkModeHandler}>{emoji}</button>
             <div className="flex space-x-6 font-bold">
                 <a href="/">About</a>
                 <a href="/">All Projects</a>
