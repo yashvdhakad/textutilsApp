@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 function App() {
 
   return (
-    <div className='max-w-7xl m-[auto] space-y-20'>
+    <div className='max-w-7xl m-[auto] space-y-20 '>
       <Navbar title={"📋 TextUtilsApp"}/>
       <Main/>
       <Footer/>

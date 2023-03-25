@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Buttons = () => {
   const [text, setText] = useState("")
 
-  const upperCaseHandler = (text) =>{
+  const upperCaseHandler = (text) => {
     let newText = text.toUpperCase;
     setText(newText);
   }
