@@ -25,9 +25,9 @@ const Navbar = (props) => {
         <nav className='h-16 px-20 bg-blue-100 text-blue-900 font-bold flex flex-row justify-between items-center rounded-lg shadow transition' style={emoji === "☀️" ? darkmode : lightmode}>
             <h1>{props.title}</h1>
             <button className="" onClick={darkModeHandler}>{emoji}</button>
-            <div className="flex space-x-6 font-bold">
-                {/* <a href="/">About</a> */}
-                <About/>
+            <div className="flex space-x-6 font-bold cursor-pointer">
+                <Link to={`About`}>About</Link>
+                {/* <About/> */}
                 <a href="/">All Projects</a>
                 <a href="/">Contact</a>
             </div>
