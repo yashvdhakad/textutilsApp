@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Button from './Button'
 
 const Main = () => {
     const [text, setText] = useState("")
@@ -29,15 +30,15 @@ const Main = () => {
             <textarea className='w-1/2 h-60 block m-[auto] p-4 border-2 border-blue-100 rounded-lg text-blue-900 font-bold' placeholder='Put your text here and click the button below to see your output.' value={text} onChange={onChangeHandler}></textarea>
 
             <div className="w-2/3 m-[auto] flex">
-                <button className='m-[auto] px-4 py-2 bg-blue-100 text-blue-900 font-bold border-2 border-blue-100 rounded-lg hover:shadow' onClick={upperCaseHandler}>To UpperCase</button>
+                <Button name="To UpperCase" upperCaseHandler={upperCaseHandler} />
 
-                <button className='m-[auto] px-4 py-2 bg-blue-100 text-blue-900 font-bold border-2 border-blue-100 rounded-lg hover:shadow' onClick={lowerCaseHandler}>To LowerCase</button>
+                <Button name="To LowerCase" lowerCaseHandler={lowerCaseHandler} />
 
-                <button className='m-[auto] px-4 py-2 bg-blue-100 text-blue-900 font-bold border-2 border-blue-100 rounded-lg hover:shadow' onClick={clearTextHandler}>Clear Text</button>
+                <Button name="Clear Text" clearTextHandler={clearTextHandler} />
 
-                <button className='m-[auto] px-4 py-2 bg-blue-100 text-blue-900 font-bold border-2 border-blue-100 rounded-lg hover:shadow' onClick={copyTextHandler}>Copy Text</button>
+                <Button name="Copy Text" copyTextHandler={copyTextHandler} />
 
-                <button className='m-[auto] px-4 py-2 bg-blue-100 text-blue-900 font-bold border-2 border-blue-100 rounded-lg hover:shadow' onClick={extraSpaceHandler}>Remove Extra Spaces</button>
+                <Button name="Remove Extra Spaces" extraSpaceHandler={extraSpaceHandler} />
             </div>
 
             <div className='w-fit m-[auto] text-blue-900 font-bold space-y-2'>
