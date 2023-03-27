@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Button from './Button'
 
-const Main = () => {
+const Main = (props) => {
     const [text, setText] = useState("")
 
     const onChangeHandler = (e) => {
@@ -27,21 +27,21 @@ const Main = () => {
 
     return (
         <>
-            <textarea className='w-1/2 h-60 block m-[auto] p-4 border-2 border-blue-100 rounded-lg text-blue-900 font-bold' placeholder='Put your text here and click the button below to see your output.' value={text} onChange={onChangeHandler}></textarea>
+            <textarea className='w-1/2 h-60 block m-[auto] p-4 border-2 border-zinc-200 rounded-lg text-black font-bold transition' placeholder='Put your text here and click the button below to see your output.' value={text} onChange={onChangeHandler} style={props.emoji === "🌙" ? props.lightMode : props.darkMode}></textarea>
 
             <div className="w-2/3 m-[auto] flex">
-                <Button name="To UpperCase" upperCaseHandler={upperCaseHandler} />
+                <Button name="To UpperCase" upperCaseHandler={upperCaseHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
 
-                <Button name="To LowerCase" lowerCaseHandler={lowerCaseHandler} />
+                <Button name="To LowerCase" lowerCaseHandler={lowerCaseHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
 
-                <Button name="Clear Text" clearTextHandler={clearTextHandler} />
+                <Button name="Clear Text" clearTextHandler={clearTextHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
 
-                <Button name="Copy Text" copyTextHandler={copyTextHandler} />
+                <Button name="Copy Text" copyTextHandler={copyTextHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
 
-                <Button name="Remove Extra Spaces" extraSpaceHandler={extraSpaceHandler} />
+                <Button name="Remove Extra Spaces" extraSpaceHandler={extraSpaceHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
             </div>
 
-            <div className='w-fit m-[auto] text-blue-900 font-bold space-y-2'>
+            <div className='w-fit m-[auto] text-black font-bold space-y-2 transition' style={props.emoji === "🌙" ? {color: "black"} : {color: "white"}}>
                 Characters: {text.length}, Words: {text === "" ? "0" : text.split(" ").length}, Time to Read: {text === "" ? "0 " : 0.25 * text.split(" ").length}sec</div>
 
             {/* <div className="">Preview: {text}</div> */}
