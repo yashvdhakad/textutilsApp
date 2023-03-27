@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import About from './About'
 
 const Navbar = (props) => {
     const [emoji, setEmoji] = useState("🌙");
@@ -26,8 +25,7 @@ const Navbar = (props) => {
             <h1>{props.title}</h1>
             <button className="" onClick={darkModeHandler}>{emoji}</button>
             <div className="flex space-x-6 font-bold cursor-pointer">
-                <Link to={`About`}>About</Link>
-                {/* <About/> */}
+                <a href='/'>About</a>
                 <a href="/">All Projects</a>
                 <a href="/">Contact</a>
             </div>
