@@ -1,5 +1,7 @@
 import { useState } from "react"
-import Button from './Button'
+import Textarea from './Textarea'
+import Buttons from './Buttons'
+import TextInfo from './TextInfo'
 
 const Main = (props) => {
     const [text, setText] = useState("")
@@ -26,26 +28,15 @@ const Main = (props) => {
     }
 
     return (
-        <>
-            <textarea className='w-1/2 h-60 block m-[auto] p-4 border-2 border-zinc-200 rounded-lg text-black font-bold transition' placeholder='Put your text here and click the button below to see your output.' value={text} onChange={onChangeHandler} style={props.emoji === "🌙" ? props.lightMode : props.darkMode}></textarea>
+        <div className="space-y-24">
+            <Textarea text={text} emoji={props.emoji} lightMode={props.lightMode} darkMode={props.darkMode} onChangeHandler={onChangeHandler} />
 
-            <div className="w-2/3 m-[auto] flex">
-                <Button name="To UpperCase" upperCaseHandler={upperCaseHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
+            <Buttons emoji={props.emoji} lightMode={props.lightMode} darkMode={props.darkMode} upperCaseHandler={upperCaseHandler} lowerCaseHandler={lowerCaseHandler} clearTextHandler={clearTextHandler} copyTextHandler={copyTextHandler} extraSpaceHandler={extraSpaceHandler} />
 
-                <Button name="To LowerCase" lowerCaseHandler={lowerCaseHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
-
-                <Button name="Clear Text" clearTextHandler={clearTextHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
-
-                <Button name="Copy Text" copyTextHandler={copyTextHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
-
-                <Button name="Remove Extra Spaces" extraSpaceHandler={extraSpaceHandler} emoji={props.emoji} darkMode={props.darkMode} lightMode={props.lightMode} />
-            </div>
-
-            <div className='w-fit m-[auto] text-black font-bold space-y-2 transition' style={props.emoji === "🌙" ? {color: "black"} : {color: "white"}}>
-                Characters: {text.length}, Words: {text === "" ? "0" : text.split(/\s+/).filter((e)=>{return e.length!=0}).length}, Time to Read: {text === "" ? "0 " : 0.25 * text.split(" ").length}sec</div>
-
-            <div className="w-1/2 m-[auto] font-bold">Preview: {text}</div>
-        </>
+            <TextInfo text={text} emoji={props.emoji} />
+            
+            <div className="w-1/2 m-[auto] font-semibold border-2 rounded-lg p-4">{text.length>0 ? text : "Your text will preview here."}</div>
+        </div>
     )
 }
 
