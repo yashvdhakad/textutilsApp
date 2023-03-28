@@ -23,8 +23,11 @@ function App() {
   return (
     <div className='max-w-screen-2xl m-[auto] space-y-24 transition relative' style={emoji === "🌙" ? lightMode : darkMode}>
       <Navbar title="📋 TextUtilsApp" emoji={emoji} darkMode={darkMode} lightMode={lightMode} />
+
       <button className='absolute right-20 text-lg' onClick={modeHandler}>{emoji}</button>
+
       <Main emoji={emoji} darkMode={darkMode} lightMode={lightMode} />
+
       <Footer />
     </div>
   )
