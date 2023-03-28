@@ -42,9 +42,9 @@ const Main = (props) => {
             </div>
 
             <div className='w-fit m-[auto] text-black font-bold space-y-2 transition' style={props.emoji === "🌙" ? {color: "black"} : {color: "white"}}>
-                Characters: {text.length}, Words: {text === "" ? "0" : text.split(" ").length}, Time to Read: {text === "" ? "0 " : 0.25 * text.split(" ").length}sec</div>
+                Characters: {text.length}, Words: {text === "" ? "0" : text.split(/\s+/).filter((e)=>{return e.length!=0}).length}, Time to Read: {text === "" ? "0 " : 0.25 * text.split(" ").length}sec</div>
 
-            {/* <div className="">Preview: {text}</div> */}
+            <div className="w-1/2 m-[auto] font-bold">Preview: {text}</div>
         </>
     )
 }
