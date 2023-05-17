@@ -35,10 +35,10 @@ function App() {
         <button className='absolute right-20 text-lg' onClick={modeHandler}>{emoji}</button>
 
         <Routes>
-        <Route exact path="/" element={<Main emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
-        <Route exact path="/about" element={<About emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
-        <Route exact path="/contact" element={<Contact emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
-          
+          <Route exact path="/" element={<Main emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
+          <Route exact path="/about" element={<About emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
+          <Route exact path="/contact" element={<Contact emoji={emoji} darkMode={darkMode} lightMode={lightMode} />} />
+
         </Routes>
 
         <Footer />
